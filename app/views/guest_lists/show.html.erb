@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @guest_list %>
+
+<div>
+  <%= link_to "Edit this guest list", edit_guest_list_path(@guest_list) %> |
+  <%= link_to "Back to guest lists", guest_lists_path %>
+
+  <%= button_to "Destroy this guest list", @guest_list, method: :delete %>
+</div>

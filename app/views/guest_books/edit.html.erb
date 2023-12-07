@@ -1,0 +1,10 @@
+<h1>Editing guest book</h1>
+
+<%= render "form", guest_book: @guest_book %>
+
+<br>
+
+<div>
+  <%= link_to "Show this guest book", @guest_book %> |
+  <%= link_to "Back to guest books", guest_books_path %>
+</div>

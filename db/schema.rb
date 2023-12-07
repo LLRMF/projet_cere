@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_06_222506) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_07_140658) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,12 +33,53 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_06_222506) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "funds", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.decimal "total_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_funds_on_user_id"
+  end
+
+  create_table "guest_books", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_guest_books_on_user_id"
+  end
+
+  create_table "guest_lists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_guest_lists_on_user_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "place"
     t.string "address"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_menus_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "image_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -72,7 +113,22 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_06_222506) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wishlists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
+  end
+
+  add_foreign_key "funds", "users"
+  add_foreign_key "guest_books", "users"
+  add_foreign_key "guest_lists", "users"
+  add_foreign_key "menus", "users"
+  add_foreign_key "photos", "users"
   add_foreign_key "user_events", "events"
   add_foreign_key "user_events", "roles"
   add_foreign_key "user_events", "users"
+  add_foreign_key "wishlists", "users"
 end

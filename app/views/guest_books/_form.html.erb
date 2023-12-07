@@ -1,0 +1,27 @@
+<%= form_with(model: guest_book) do |form| %>
+  <% if guest_book.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(guest_book.errors.count, "error") %> prohibited this guest_book from being saved:</h2>
+
+      <ul>
+        <% guest_book.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :message, style: "display: block" %>
+    <%= form.text_area :message %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

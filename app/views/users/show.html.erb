@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <!-- Profil Section -->
+    <div class="col-md-4">
+      <div class="profile-section">
+        <img src="path_to_profile_image.jpg" alt="Photo de profil" class="img-fluid">
+        <h3>Madame Yvette Chaudierre et Monsieur Paul Ledure</h3>
+        <!-- Ajout des boutons de liens -->
+        <%= link_to 'Ma liste d\'invités', guest_list_path, class: 'btn btn-info' %>
+        <%= link_to 'Le Menu', menu_path, class: 'btn btn-info' %>
+        <%= link_to 'Ma liste d\'envies', wishlist_path, class: 'btn btn-info' %>
+        <%= link_to 'Mon livre d\'or', guest_book_path, class: 'btn btn-info' %>
+        <%= link_to 'Ma gallerie', photos_path, class: 'btn btn-info' %>
+        <%= link_to 'Ma cagnotte', fund_path, class: 'btn btn-info' %>
+      </div>
+    </div>
+    <!-- Événements Section -->
+    <div class="col-md-4">
+      <div class="events-section">
+        <h4>Ma liste d'événements</h4>
+        <ul>
+          <li><strong>Événement:</strong> Mairie</li>
+          <li><strong>Horaire:</strong> 14h00</li>
+          <li><strong>Lieu:</strong> Adresse Mairie</li>
+          <!-- Répétez pour d'autres événements -->
+        </ul>
+        <button type="button" class="btn btn-primary">Créer un nouvel événement</button>
+        <!-- Liens supplémentaires si nécessaire -->
+      </div>
+    </div>
+    <!-- To-Do List Section -->
+    <div class="col-md-4">
+      <div class="todo-section">
+        <h4>To-Do Liste</h4>
+        <ul>
+          <li>Acheter les fleurs</li>
+          <li>Réserver le limousine</li>
+          <li>Rencontrer le DJ</li>
+          <!-- Autres tâches -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function submitForm() {
+    document.getElementById('avatar-form').submit();
+  }
+  function changeBackgroundColor(element, newClass) {
+    element.classList.remove('bg-primary', 'bg-secondary', 'bg-warning');
+    element.classList.add(newClass);
+  }
+</script>
