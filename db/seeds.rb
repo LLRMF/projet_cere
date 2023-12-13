@@ -7,53 +7,30 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-User.destroy_all
+UserEvent.destroy_all
+EventLocation.destroy_all
 Location.destroy_all
 Event.destroy_all
 Role.destroy_all
+Image.destroy_all
+Album.destroy_all
+User.destroy_all
 
-Events =[]
-5. times do
-    Event.create(date: Faker::Time.between(from: DateTime.now, to: '2024-12-31'), city_name: Faker::Address.city, title: Faker::Science.element, program: Faker::Lorem.characters(number: 255, min_alpha: 0, min_numeric: 0))
-end
-Events << Event
-
-
-
-Users = []
-5.times do
-    User.create(email: Faker::Internet.unique.email(domain: 'yopmail.com'), password: "123456", first_name: Faker::FunnyName.name, last_name: Faker::FunnyName.name)
-end
-Users << User
-
-
-
-Locations =[]
-5.times do
-    Location.create(place: Faker::Company.department, address: Faker::Address.city, description: Faker::Lorem.characters(number: 255, min_alpha: 0, min_numeric: 0))
-end
-Locations << Location
-
-
-
-location_indexes = []
-Locations.each_with_index do |location, index|
-  location_indexes << { index: index, id: location.id }
-end
-
-
-
-Roles = []
-5.times do
-    Role.create(role_name: Faker::Games::SuperMario.character)
-end
-
-Roles << Role
-
-
-
-# EventLocations =[]
-# 5.times do
-#     EventLocation.create(date: Faker::Time.between(from: DateTime.now, to: '2024-12-31'), location_id: Locations.sample)
+# 10.times do
+#     Location.create(place: Faker::Company.department, address: Faker::Address.city, privacy_status: 1)
 # end
-# EventLocations << EventLocation
+
+
+Role.create(role_name: 'organizer')
+Role.create(role_name: 'guest')
+
+# Events = []
+# 5.times do
+#     event = Event.create(date: "28/05/2024", city_name: Faker::Address.city, title: Faker::Superhero.power, program: Faker::Sport.summer_olympics_sport)
+#     Events << event
+# end
+
+
+# 5.times do
+#     Album.create(title: Faker::Color.name, description: Faker::Currency.name, event_id: Events.sample.id)
+# end

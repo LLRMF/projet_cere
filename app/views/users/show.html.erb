@@ -1,0 +1,74 @@
+<style>
+    #avatar-form {
+      position: relative;
+    }
+
+    #avatar-input {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    #custom-avatar-button {
+      /* Ajoutez ici les styles pour personnaliser votre bouton */
+      padding: 10px 15px;
+      background-color: #FFB7B7;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+
+
+
+
+
+
+<div class="container">
+  <div class="row apparitionprofil">
+    <!-- Profile Section -->
+    <div class="col-md-4">
+      <div class="profile-section rounded-border avatar" >
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar, alt: 'avatar', class: 'img-fluid rounded-circle' %>
+        <% else %>
+          <img src="https://images.unsplash.com/photo-1645389411992-e9ec49b158e6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvdXBsZXxlbnwwfHwwfHx8MA%3D%3D" alt="Photo de profil" class="img-fluid rounded-image">
+        <% end %>
+        <%= form_tag user_avatars_path(@user), multipart: true, id: 'avatar-form' do %>
+          <label id="custom-avatar-button" for="avatar-input">Changer Photo de Profil</label>
+          <%= file_field_tag :avatar, id: 'avatar-input', onchange: 'submitForm()' %>
+        <% end %>
+      </div>
+      <br>
+    </div>
+    <!-- Events Section -->
+    <div class="col-md-4">
+      <div class="events-section rounded-border newevent mb-4">
+        <h6 class="eventlisttitre">Ma liste d'événements</h6>
+        
+        <%= link_to new_event_path, class: 'nav-link sweetButton' do %>
+          <h6 class="m-0 ">Créer un nouvel évènement</h6>
+        <% end %>
+      </div>
+    </div>
+    <!-- To-Do List Section -->
+    <div class="col-md-4">
+      <div class="todo-section rounded-border newevent mb-4">
+        <h6 class="eventlisttitre">To-Do Liste</h6>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    function submitForm() {
+      document.getElementById('avatar-form').submit();
+    }
+  </script>
+</div>

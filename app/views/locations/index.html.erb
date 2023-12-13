@@ -1,0 +1,29 @@
+<div id="location_index" class="text-center">
+
+  <h2>tous les lieux du mariage</h2>
+
+  <%= link_to "Créer", new_location_path, class: "btn sweetButton" %>
+
+  <div class="location-cards-container">
+    <% @public_locations.each do |public_location|%>
+      <div class="location-card">
+        <h5 class="location-heading">Place :</h5>
+        <p class="location-details"><%= public_location.place %></p>
+        <h5 class="location-heading">Adresse :</h5>
+        <p class="location-details"><%= public_location.address %></p>
+        <%= link_to "Voir détail", location_path(public_location), class: "btn sweetButton" %>
+      </div>
+    <% end %>
+
+    <% @private_locations.each do |private_location|%>
+      <div class="location-card">
+        <h5 class="location-heading">Place :</h5>
+        <p class="location-details"><%= private_location.place %></p>
+        <h5 class="location-heading">Adresse :</h5>
+        <p class="location-details"><%= private_location.address %></p>
+        <%= link_to "Voir détail", location_path(private_location), class: "btn sweetButton" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
