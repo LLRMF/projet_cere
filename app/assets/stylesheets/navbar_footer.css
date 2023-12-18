@@ -9,7 +9,7 @@
   margin-bottom: 0;
 /* From https://css.glass */
 background-color: rgba(242, 109, 145, 0.3);
-border-radius: 16px;
+border-radius: 2px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(3.2px);
 -webkit-backdrop-filter: blur(3.2px);
@@ -81,7 +81,7 @@ border: 1px solid rgba(82, 40, 40, 0.3);
   height: 60px;
   z-index: 1000;
   background-color: rgba(242, 109, 145, 0.3);
-border-radius: 16px;
+border-radius: 2px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(3.2px);
 -webkit-backdrop-filter: blur(3.2px);
