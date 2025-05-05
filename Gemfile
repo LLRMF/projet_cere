@@ -84,5 +84,3 @@ group :test do
 end
 
 gem "dockerfile-rails", ">= 1.7", :group => :development
-
-gem 'sqlite3', '~> 1.4'
