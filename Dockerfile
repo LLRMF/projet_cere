@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1
 
 # Étape de base avec Ruby
-ARG RUBY_VERSION=3.2.2
+ARG RUBY_VERSION=3.0.0
 FROM ruby:$RUBY_VERSION-slim as base
 
 WORKDIR /rails
