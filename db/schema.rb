@@ -11,9 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2023_12_18_201820) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -57,13 +54,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_18_201820) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "event_id"
+    t.integer "event_id"
     t.index ["event_id"], name: "index_albums_on_event_id"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "image_id"
+    t.integer "user_id"
+    t.integer "image_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -75,8 +72,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_18_201820) do
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "location_id"
-    t.bigint "event_id"
+    t.integer "location_id"
+    t.integer "event_id"
     t.text "description"
     t.index ["event_id"], name: "index_event_locations_on_event_id"
     t.index ["location_id"], name: "index_event_locations_on_location_id"
@@ -93,10 +90,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_18_201820) do
   create_table "images", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.bigint "album_id", null: false
+    t.integer "album_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.index ["album_id"], name: "index_images_on_album_id"
     t.index ["user_id"], name: "index_images_on_user_id"
   end
@@ -116,9 +113,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_18_201820) do
   end
 
   create_table "user_events", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "role_id", null: false
-    t.bigint "event_id", null: false
+    t.integer "user_id", null: false
+    t.integer "role_id", null: false
+    t.integer "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_user_events_on_event_id"

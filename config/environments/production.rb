@@ -21,8 +21,7 @@ Rails.application.configure do
   # config.require_master_key = true
 
   # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
-  # config.public_file_server.enabled = false
-
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
@@ -47,7 +46,7 @@ Rails.application.configure do
     region: 'eu-west-3',
     bucket: 'projetceremonia'  # Retirez <%= Rails.env %>
   }
-  
+
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
