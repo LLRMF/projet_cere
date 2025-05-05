@@ -85,4 +85,4 @@ end
 
 gem "dockerfile-rails", ">= 1.7", :group => :development
 
-gem "pg", "~> 1.5"
+gem 'sqlite3', '~> 1.4'
